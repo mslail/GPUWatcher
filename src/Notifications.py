@@ -15,8 +15,6 @@ class Notifications:
             server_ssl.ehlo()
             server_ssl.login(GMAIL_SENDER, GMAIL_PASSWORD)  
             server_ssl.sendmail(GMAIL_SENDER, GMAIL_SENDER, 'ITS HERE MOTHERFUCKER ' + url)
-            server_ssl.sendmail(GMAIL_SENDER, 'meetinderlail@yahoo.ca', 'ITS HERE MOTHERFUCKER ' + url)
-            server_ssl.sendmail(GMAIL_SENDER, 'brittany.naeckel@gmail.com', 'ITS HERE MOTHERFUCKER ' + url)
             server_ssl.close()
             print('Successfully sent the mail')
         except:
