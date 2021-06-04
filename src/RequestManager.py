@@ -1,11 +1,8 @@
 import requests
-import time
 
 from src.ProxyManager import ProxyManager
 from src.Notifications import Notifications
 from src.Source import Source, SourceManager
-
-TIMEOUT_SECONDS = 5
 
 class RequestManager:
     url = ''
@@ -40,9 +37,9 @@ class RequestManager:
             print('Invalid request')
             return
             
-        if (self.sourceManager.validateSource()):
+        if (self.sourceManager.validateSource(self.request)):
             print('Found one in stock for url: ' + self.url)
-            self.notications.sendEmail()
+            self.notications.sendEmail(self.url)
             self.notications.openBrowser(self.url)
             self.notications.playSound()
         else: 

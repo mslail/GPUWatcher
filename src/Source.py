@@ -1,6 +1,7 @@
 from enum import Enum
 
-KEY_WORD = 'Online In Stock'
+ONLINE_IN_STOCK = 'Online In Stock'
+ONLINE_IN_SPECIAL_ORDER = 'Online Special Order'
 AVAILABLE_TO_SHIP = 'Available to ship'
 
 class Source(Enum):
@@ -16,7 +17,7 @@ class SourceManager:
      
      def validateSource(self, request):
           if self.source == Source.CanadaComputers:
-               return KEY_WORD in request.text
+               return ONLINE_IN_STOCK in request.text or ONLINE_IN_SPECIAL_ORDER in request.text
           elif self.source == Source.BestBuy:
                return AVAILABLE_TO_SHIP in request.text
           return False
